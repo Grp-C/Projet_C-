@@ -6,35 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using ASP.Server.Models;
 
 namespace ASP.Server.Controllers
 {
-    public class CreateBookModel
-    {
-       
-        
-        [Required]
-        [Display(Name = "Nom")]
-        public String Name { get; set; }
-
-        // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
-
-        [Required]
-        [Display(Name = "Autheur")]
-        public String Author { get; set; }
-        [Required]
-        [Display(Name = "Prix")]
-        public Double Price { get; set; }
-        [Required]
-        [Display(Name = "Contenu")]
-        public String Content { get; set; }
-
-        // Liste des genres séléctionné par l'utilisateur
-        public List<int> Genres { get; set; }
-
-        // Liste des genres a afficher à l'utilisateur
-        public IEnumerable<Genre> AllGenres { get; init;  }
-    }
+    
+     
 
     public class BookController : Controller
     {
@@ -52,7 +29,7 @@ namespace ASP.Server.Controllers
             return View(ListBooks);
         }
 
-        public ActionResult<CreateBookModel> Create(CreateBookModel book)
+        public ActionResult<BookModel> Create(BookModel book)
         {
             // Le IsValid est True uniquement si tous les champs de CreateBookModel marqués Required sont remplis
             if (ModelState.IsValid)
@@ -65,7 +42,7 @@ namespace ASP.Server.Controllers
             }
 
             // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
-            return View(new CreateBookModel() { AllGenres = null } );
+            return View(new BookModel() { AllGenres = null } );
         }
     }
 }
