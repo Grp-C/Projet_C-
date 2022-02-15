@@ -55,12 +55,19 @@ namespace ASP.Server.Api
         //   - Ex: libraryDbContext.MyObjectCollection.Include(x => x.yyyyy).Where(x => x.yyyyyy.Contains(z)).Skip(i).Take(j).ToList()
 
 
-        // Vous vous montre comment faire la 1er, a vous de la compléter et de faire les autres !
+        // Get all books 
         public ActionResult<List<Book>> GetBooks()
         {
-            throw new NotImplementedException("You have to do it youtself");
+            return libraryDbContext.Books.Include(book => book.Genres).ToList();
         }
 
+
+        //get Book by Id 
+        [HttpGet("{id}")]
+        public ActionResult<Book> GetBookById(int id)
+        {
+            return libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Id == id).FirstOrDefault();
+        }
     }
 }
 

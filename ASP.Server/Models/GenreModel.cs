@@ -11,7 +11,6 @@ namespace ASP.Server.Models
         [Display(Name = "Id")]
         public Int32 Id { get; set; }
 
-        // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
 
         [Required]
         [Display(Name = "Name")]
@@ -25,5 +24,5 @@ namespace ASP.Server.Models
         // Liste des genres a afficher à l'utilisateur
         public IEnumerable<Book> AllBooks { get; init; }
     }
-}
+
 }
