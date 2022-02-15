@@ -56,9 +56,9 @@ namespace ASP.Server.Api
 
 
         // Get all books 
-        public ActionResult<List<Book>> GetBooks()
+        public ActionResult<List<Book>> GetBooks(int genreId )
         {
-            return libraryDbContext.Books.Include(book => book.Genres).ToList();
+            return libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Genres.Contains(new Genre { Id = genreId })).ToList();
         }
 
 
