@@ -14,7 +14,7 @@ namespace ASP.Server.Model
 
         public string Name { get; set; }
 
-        public IObservable<Book> Books { get; set; }
+       // public IObservable<Book> Books { get; set; }
 
         // Mettez ici les propriété de votre livre: Nom et Livres associés
 
