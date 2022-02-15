@@ -15,9 +15,6 @@ namespace ASP.Server.Model
         public string Author { get; set; }
         public double Price { get; set; }
         public string Content { get; set; }
-
-
-
         public ICollection<Genre> Genre { get; set; }
 
 
