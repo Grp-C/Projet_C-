@@ -11,11 +11,23 @@ namespace ASP.Server.Controllers
 {
     public class CreateBookModel
     {
+       
+        
         [Required]
         [Display(Name = "Nom")]
         public String Name { get; set; }
 
         // Ajouter ici tous les champ que l'utilisateur devra remplir pour ajouter un livre
+
+        [Required]
+        [Display(Name = "Autheur")]
+        public String Author { get; set; }
+        [Required]
+        [Display(Name = "Prix")]
+        public Double Price { get; set; }
+        [Required]
+        [Display(Name = "Contenu")]
+        public String Content { get; set; }
 
         // Liste des genres séléctionné par l'utilisateur
         public List<int> Genres { get; set; }
