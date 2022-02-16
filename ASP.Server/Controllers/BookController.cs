@@ -40,6 +40,7 @@ namespace ASP.Server.Controllers
                 // Completer la création du livre avec toute les information nécéssaire que vous aurez ajoutez, et metter la liste des gener récupéré de la base aussi
                 libraryDbContext.Add(new Book() { Author=book.Author,Name=book.Name,Price=book.Price,Content=book.Content,Genres=genres});
                 libraryDbContext.SaveChanges();
+                return RedirectToAction("List");
             }
 
             // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
@@ -55,6 +56,26 @@ namespace ASP.Server.Controllers
             libraryDbContext.SaveChanges();
             return RedirectToAction("List");
         }
+
+        public ActionResult<Book> Read(int id)
+        {
+            Book book = libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Id == id).FirstOrDefault();
+            BookModel bookModel = new BookModel()
+            {
+                Author = book.Author,
+                Name = book.Name,
+                Price = book.Price,
+                Content = book.Content,
+                AllGenres=book.Genres.ToList(),
+            };
+            
+            return View(bookModel); 
+            
+            
+        }
+
+
+
 
         public ActionResult<BookModel> Edit( BookModel bookModel)
         {

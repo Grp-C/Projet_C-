@@ -1,0 +1,58 @@
+﻿
+@using ASP.Server.Model
+@model BookModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+    <hr />
+<div class="Read">
+   <dl class="row"> 
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Name)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Name)
+</dd>
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Author)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Author)
+</dd>
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Price)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Price)
+</dd>
+
+<dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Genres)
+        </dt>
+        <dd class="col-sm-10">
+            
+                @foreach (var Genre in Model.AllGenres)
+                {
+                    <p>  @Genre.Name</p> 
+                       
+                }
+          
+        </dd>
+
+
+<dt class="col-sm-2">
+    @Html.DisplayNameFor(model => model.Content)
+</dt>
+<dd class="col-sm-10">
+    @Html.DisplayFor(model => model.Content)
+
+
+
+</dl>
+
+</div>
