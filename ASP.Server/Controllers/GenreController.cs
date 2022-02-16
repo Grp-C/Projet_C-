@@ -18,6 +18,14 @@ namespace ASP.Server.Controllers
             this.libraryDbContext = libraryDbContext;
         }
 
+
         // A vous de faire comme BookController.List mais pour les genres !
+        public ActionResult<IEnumerable<Genre>> List()
+        {
+            // récupérer les livres dans la base de donées pour qu'elle puisse être affiché
+            
+            List<Genre> ListGenres = libraryDbContext.Genre.ToList(); ;
+            return View(ListGenres);
+        }
     }
 }
