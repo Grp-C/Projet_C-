@@ -38,7 +38,7 @@ namespace ASP.Server.Controllers
                 // Il faut intéroger la base pour récupérer l'ensemble des objets genre qui correspond aux id dans CreateBookModel.Genres
                 List<Genre> genres = libraryDbContext.Genre.Where(genre=>book.Genres.Contains(genre.Id)).ToList();
                 // Completer la création du livre avec toute les information nécéssaire que vous aurez ajoutez, et metter la liste des gener récupéré de la base aussi
-                libraryDbContext.Add(new Book() { Author=book.Author,Name=book.Name,Id= libraryDbContext.Books.Include(book => book.Genres).ToList().Last().Id+1,Price=book.Price,Content=book.Content,Genres=genres});
+                libraryDbContext.Add(new Book() { Author=book.Author,Name=book.Name,Price=book.Price,Content=book.Content,Genres=genres});
                 libraryDbContext.SaveChanges();
             }
 
