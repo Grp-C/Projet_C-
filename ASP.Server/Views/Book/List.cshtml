@@ -104,9 +104,9 @@ h1{
         <td> @foreach (var Genre in book.Genres){
               <p>  @(Genre.Name)</p>  }</td>
         <td>
-                    <a asp-action="Read" asp-route-id="" class="read">Read</a> |
-                    <a asp-action="Edit" asp-route-id="" class="edit">Edit</a> |
-                    <a asp-action="Delete" asp-route-id="" class="delete">Delete</a>
+                    <a asp-action="Read" asp-route-id="@book.Id" class="read">Read</a> |
+                    <a asp-action="Edit" asp-route-id="@book.Id" class="edit">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@book.Id" class="delete">Delete</a>
         </td>
         
      </tr>

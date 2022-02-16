@@ -45,5 +45,39 @@ namespace ASP.Server.Controllers
             // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
             return View(new BookModel() { AllGenres = null } );
         }
+
+        public ActionResult<BookModel> Edit( BookModel bookModel)
+        {
+            if (ModelState.IsValid)
+            {
+                Book book = libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Id == bookModel.Id).FirstOrDefault();
+                book.Name = bookModel.Name;
+                book.Price = bookModel.Price;
+                //book.Genres = bookModel.Genres.Select(genre => new Genre() { Id = book.Id, Name = book.Name }).ToList();
+                book.Author = bookModel.Author;
+                book.Content = bookModel.Content;
+
+                libraryDbContext.SaveChanges();
+
+                return RedirectToAction("List");
+
+            }
+            else
+            {
+                Book book = libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Id == bookModel.Id).FirstOrDefault();
+                BookModel bookModel1 = new BookModel()
+                {
+                    Name = book.Name,
+                    Price = book.Price,
+                    Author = book.Author,
+                    Content = book.Content,
+                   // Genres = book.Genres.Select(genre => new GenreModel() { Id = book.Id, Name = book.Name }).ToList()
+                };
+                return View(bookModel1);
+            }
+            
+  
+            
+        }
     }
 }

@@ -7,6 +7,8 @@ namespace ASP.Server.Models
 {
     public class BookModel
     {
+        public int Id { get; set; }
+
         [Required]
         [Display(Name = "Name")]
         public String Name { get; set; }
