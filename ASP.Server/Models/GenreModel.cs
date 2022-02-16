@@ -21,6 +21,8 @@ namespace ASP.Server.Models
         // Liste des genres séléctionné par l'utilisateur
         public List<int> Books { get; set; }
 
+        public String Picture { get; set; }
+
         // Liste des genres a afficher à l'utilisateur
         public IEnumerable<Book> AllBooks { get; init; }
     }

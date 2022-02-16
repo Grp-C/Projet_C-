@@ -1,0 +1,24 @@
+﻿@using ASP.Server.Controllers
+@model GenreModel
+@{
+    ViewData["Title"] = " Add Genre";
+}
+<style>
+    
+  
+</style>
+<form asp-controller="Genre" asp-action="CreateGenre">
+    <div class="input-group">
+        <label asp-for="Name"></label>
+        <input asp-for="Name" />
+    </div>
+    <div class="input-group">
+        <label asp-for="Picture"></label>
+        <input asp-for="Picture" />
+        
+    </div>
+    <input type="submit" value="Add" />
+</form>
+
+
+
