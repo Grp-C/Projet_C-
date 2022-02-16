@@ -36,14 +36,24 @@ namespace ASP.Server.Controllers
             if (ModelState.IsValid)
             {
                 // Il faut intéroger la base pour récupérer l'ensemble des objets genre qui correspond aux id dans CreateBookModel.Genres
-                List<Genre> genres = null;
+                List<Genre> genres = libraryDbContext.Genre.Where(genre=>book.Genres.Contains(genre.Id)).ToList();
                 // Completer la création du livre avec toute les information nécéssaire que vous aurez ajoutez, et metter la liste des gener récupéré de la base aussi
-                libraryDbContext.Add(new Book() {  });
+                libraryDbContext.Add(new Book() { Author=book.Author,Name=book.Name,Price=book.Price,Content=book.Content,Genres=genres});
                 libraryDbContext.SaveChanges();
             }
 
             // Il faut interoger la base pour récupérer tous les genres, pour que l'utilisateur puisse les slécétionné
-            return View(new BookModel() { AllGenres = null } );
+            return View(new BookModel() { AllGenres = libraryDbContext.Genre.ToList() } );
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Book book = libraryDbContext.Books.Find(id);
+
+            // delete book from the database whose id matches with specified id
+            libraryDbContext.Books.Remove(book);
+            libraryDbContext.SaveChanges();
+            return RedirectToAction("List");
         }
 
         public ActionResult<BookModel> Edit( BookModel bookModel)

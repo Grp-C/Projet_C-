@@ -22,22 +22,26 @@ namespace ASP.Server.Database
                 SF = new Genre()
                 {
                     Id = 1,
-                    Name = "SF"
+                    Name = "SF",
+                    Picture = "https://www.futuribles.com/media/base/main/SFetScience.jpg.560x300_q85_box-0%2C47%2C1000%2C582_crop_detail.jpg"
                 } ,
                 Classic = new Genre()
                 {
                     Id = 2,
-                    Name = "Classic"
+                    Name = "Classic",
+                    Picture = "https://cdn.radiofrance.fr/s3/cruiser-production/2021/02/23ccba05-9bc7-48e1-8718-d720e6d470f3/1136_jean-beraud-belle-epoque-paris.webp"
                 },
                 Romance = new Genre()
                 {
                     Id = 3,
-                    Name = "Romance"
+                    Name = "Romance",
+                    Picture = "https://www.silverpetticoatreview.com/wp-content/uploads/2017/07/The-Lake-House-Featured-Image.jpg"
                 },
                 Thriller = new Genre()
                 {
                     Id = 4,
-                    Name = "Thriller"
+                    Name = "Thriller",
+                    Picture = "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/112012/thriller.png?itok=sfbL50uU"
                 }
             );
             bookDbContext.SaveChanges();
