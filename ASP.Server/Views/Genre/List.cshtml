@@ -58,8 +58,8 @@
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
     <div class="cards">
     @foreach (var genre in Model)
-    { <div>
-     <img src=@(genre.Picture)>
+    {   <div class="card">
+             <img src=@(genre.Picture)>
        
             <a asp-route-id="" class="link"> @(genre.Name)</a>
         </div>
@@ -67,4 +67,3 @@
     }
     </div>
 </div>
-
