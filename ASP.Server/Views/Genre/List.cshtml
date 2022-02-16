@@ -54,23 +54,12 @@
 </style>
 <div class="listeGenres">
     <h1>Liste des Genres:</h1>
-    @{
-         string[]  tab = new string[]{"https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/112012/thriller.png?itok=sfbL50uU",
-             "https://www.futuribles.com/media/base/main/SFetScience.jpg.560x300_q85_box-0%2C47%2C1000%2C582_crop_detail.jpg",
-         "https://cdn.radiofrance.fr/s3/cruiser-production/2021/02/23ccba05-9bc7-48e1-8718-d720e6d470f3/1136_jean-beraud-belle-epoque-paris.webp",
-     "https://www.silverpetticoatreview.com/wp-content/uploads/2017/07/The-Lake-House-Featured-Image.jpg",
- "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/112012/thriller.png?itok=sfbL50uU",
- "https://www.futuribles.com/media/base/main/SFetScience.jpg.560x300_q85_box-0%2C47%2C1000%2C582_crop_detail.jpg",
-         "https://cdn.radiofrance.fr/s3/cruiser-production/2021/02/23ccba05-9bc7-48e1-8718-d720e6d470f3/1136_jean-beraud-belle-epoque-paris.webp",
-     "https://www.silverpetticoatreview.com/wp-content/uploads/2017/07/The-Lake-House-Featured-Image.jpg",
- "https://d1yjjnpx0p53s8.cloudfront.net/styles/logo-original-577x577/s3/112012/thriller.png?itok=sfbL50uU"
-} ;
-    }
+   
     <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
     <div class="cards">
     @foreach (var genre in Model)
     {   <div class="card">
-            <img src=@(tab[genre.Id])>
+             <img src=@(genre.Picture)>
        
             <a asp-route-id="" class="link"> @(genre.Name)</a>
         </div>
@@ -78,4 +67,3 @@
     }
     </div>
 </div>
-

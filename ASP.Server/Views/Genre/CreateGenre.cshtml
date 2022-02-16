@@ -1,7 +1,7 @@
 ﻿@using ASP.Server.Controllers
-@model BookModel
+@model GenreModel
 @{
-    ViewData["Title"] = "Add a book";
+    ViewData["Title"] = " Add Genre";
 }
 <style>
     /*
@@ -146,39 +146,19 @@ label {
     flex-basis:10%;
 }
 </style>
-
-<!-- Voici une facon de faire, mais ce n'est pas la seul, a vous de jouer ! -->
-   
-<form asp-controller="Book" asp-action="Create" class="form">
-    <div class="title">Add Book!</div>
-
-    <div class="input-container ">
-        <label asp-for="Name" style="color:white" ></label>
-        <input asp-for="Name"  required id="firstname" class="input" type="text" />
-    </div>
-     <div class="input-container ic1">
-        <label asp-for="Author" style="color:white" ></label>
-        <input asp-for="Author"  required id="firstname" class="input" type="text"/>
-
+<form asp-controller="Genre" asp-action="CreateGenre" class="form">
+    <div class="title">Add Genre!</div>
+    <div class="input-container ic1">
+        <label asp-for="Name" style="color:white"></label>
+        <input asp-for="Name" id="firstname" class="input" type="text"/>
     </div>
     <div class="input-container ic1">
-        <label asp-for="Price" style="color:white" ></label>
-        <input asp-for="Price" required id="firstname" class="input" type="text" />
-
+        <label asp-for="Picture" style="color:white"></label>
+        <input asp-for="Picture" id="firstname" class="input" type="text"/>
+        
     </div>
-    <div class="input-container ic1">
-        <label asp-for="Content" style="color:white" ></label>
-        <input asp-for="Content" required id="firstname" class="input" type="text" />
-
-    </div>
-   
-    <div class="input-container ic1">
-        <label asp-for="Genres" style="color:white" ></label>
-        <!--Si la page rend une erreur a cette ligne, c'est que vous n'avez pas envoyé la liste des genres dans le Controller !!! ! -->
-        <select asp-for="Genres" asp-items="@(new SelectList(Model.AllGenres,"Id","Name"))" class="input">
-
-        </select>
-    </div>
-    <button class="submit" type="submit" value="Add" style="width: 100%; margin-top: 50px" >Add</button>
-
+     <button class="submit" type="submit" value="Add" style="width: 100%; margin-top: 50px" >Add</button>
 </form>
+
+
+
