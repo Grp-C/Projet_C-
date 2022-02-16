@@ -3,12 +3,113 @@
 @{
     ViewData["Title"] = "Home Page";
 }
+<style>
+*{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+    background: rgba(99, 110, 114,1.0);
+}
+h1{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+    background-color:#2d3436;
+}
 
-<div class="listeBooks">
+/* Table Styles */
+
+.table-wrapper{
+    margin: 10px 70px 70px;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+}
+
+.fl-table {
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: normal;
+    border: none;
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 100%;
+    white-space: nowrap;
+    background-color: white;
+}
+
+.fl-table td, .fl-table th {
+    text-align: center;
+    padding: 8px;
+}
+
+.fl-table td {
+    border-right: 1px solid #f8f8f8;
+    font-size: 12px;
+}
+
+.fl-table thead th {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+.fl-table thead th:nth-child(odd) {
+    color: #ffffff;
+    background: #324960;
+}
+
+.fl-table tr:nth-child(even) {
+    background: #F8F8F8;
+}
+
+.read{color: #00b894;}
+.edit{color: #fdcb6e;}
+.delete{color: #d63031;}
+
+</style>
+<div class="table-wrapper">
     <h1>Liste des livres:</h1>
-    <!-- la liste des genres est dans la variable Model qui est typé en ligne 3, elle correspond à la variable xxx dans View(xxx) du controller -->
+    <h2></h2>   
+    <table class="fl-table">
+        <tbody>
+            <thead>
+            <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Genres)
+            </th>
+            <th>Action</th>
+        </tr>
+        </thead>
     @foreach (var book in Model)
-    {
+    { <tr>
+        
+        <td>@(book.Name)</td>
+        <td>@(book.Author)</td>
+        <td>@(book.Price)</td>
+        <td> @foreach (var Genre in book.Genres){
+              <p>  @(Genre.Name)</p>  }</td>
+        <td>
+                    <a asp-action="Read" asp-route-id="" class="read">Read</a> |
+                    <a asp-action="Edit" asp-route-id="" class="edit">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="" class="delete">Delete</a>
+        </td>
+        
+     </tr>
     }
-</div>
-
+   </tbody>
+    </table>

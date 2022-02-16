@@ -55,11 +55,11 @@ namespace ASP.Server.Api
         //   - Ex: libraryDbContext.MyObjectCollection.Include(x => x.yyyyy).Where(x => x.yyyyyy.Contains(z)).Skip(i).Take(j).ToList()
 
 
-        // Get all books 
-        public ActionResult<List<Book>> GetBooks( int genreId, int limit, int offset )
+        // Get all books by genreId (optionnel) and limit and offset  and return BookWrapper( id , Name , Price , Author)
+        public ActionResult<List<BookWrapper>> GetBooks( int genreId, int limit, int offset )
         {
-            return genreId!=0 ? libraryDbContext.Books.Include(book => book.Genres).Where(book => book.Genres.Contains(new Genre { Id = genreId })).OrderBy(q => q.Id).Include(book => book.Genres).Skip(offset - 1).Take(limit).ToList()
-            : libraryDbContext.Books.Include(book => book.Genres).OrderBy(q => q.Id).Include(book => book.Genres).Skip(offset-1).Take(limit).ToList();
+            return genreId!=0 ? libraryDbContext.Books.Include(book => book.Genres).Select(book => new BookWrapper() { Id = book.Id,Name = book.Name,Author = book.Author, Price = book.Price , Genres = book.Genres}).Where(book => book.Genres.Contains(new Genre { Id = genreId })).OrderBy(q => q.Id).Skip(offset - 1).Take(limit).ToList()
+            : libraryDbContext.Books.Include(book => book.Genres).Select(book => new BookWrapper() { Id = book.Id, Name = book.Name, Author = book.Author, Price = book.Price, Genres = book.Genres }).OrderBy(q => q.Id).Skip(offset-1).Take(limit).ToList();
         }
 
 
