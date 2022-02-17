@@ -21,6 +21,7 @@ namespace WPF.Reader.ViewModel
         public ListBook()
         {
             ItemSelectedCommand = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<DetailsBook>(book); });
+             //Navigate to List Genre
             GoToGenre = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<ListGenre>(); });
         }
     }

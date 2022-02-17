@@ -16,7 +16,7 @@
 
 
     <StackPanel Orientation="Vertical">
-        <Button Command="{Binding GoToGenre}" Content="Go To Genre" />
+        <Button Command="{Binding GoToGenre}" Content="Back to Genres"  Width="100" Margin="10" HorizontalAlignment="Left" />
         <TextBlock FontSize="36" Text="List Books" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,20"/>
         <ListView Margin="10" Name="lvUsers" ItemsSource="{Binding Books}">
                     <ListView.View>
@@ -28,7 +28,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
-                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Detail" Margin="10">
+                                                    CommandParameter="{Binding .}" Foreground="Blue" MinWidth="100" Height="30" Content="Detail" Margin="10">
                                         </Button>
                                      </DataTemplate>
                                 </GridViewColumn.CellTemplate>
