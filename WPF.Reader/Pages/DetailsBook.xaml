@@ -10,13 +10,28 @@
       d:DataContext="{d:DesignInstance Type=vm:InDesignDetailsBook, d:IsDesignTimeCreatable=True}"
       Title="DetailsBook">
 
-    <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+    <Grid Margin="10">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="50" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <!-- il faut afficher les information du livre: Nom, Auteur, Prix, Genres-->
-        <!-- Mais pas le contenu ! -->
-        <!-- N'oublier pas le bouton pour aller lire le livre. La commande ReadCommand est faite pour ca ! -->
+        <Label>Name:</Label>
+        <TextBlock Grid.Column="1" Margin="0,0,0,10" />
+        
+        <Label Grid.Row="1">Autor:</Label>
+        <TextBlock Grid.Row="1" Grid.Column="1" Margin="0,0,0,10" />
+
+        <Label Grid.Row="2">Price:</Label>
+        <TextBlock Grid.Row="2" Grid.Column="2" Margin="0,0,0,10" />
+
+      
+
+
     </Grid>
+    
 </Page>

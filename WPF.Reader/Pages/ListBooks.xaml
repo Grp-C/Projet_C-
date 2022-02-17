@@ -23,9 +23,10 @@
                             <GridViewColumn Header="Action" Width="200">
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
-                                    <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
-            CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10"></Button>
-                                </DataTemplate>
+                                        <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
+                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10">
+                                        </Button>
+                                     </DataTemplate>
                                 </GridViewColumn.CellTemplate>
                              </GridViewColumn>
                          </GridView>
