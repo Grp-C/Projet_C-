@@ -16,6 +16,7 @@
 
 
     <StackPanel Orientation="Vertical">
+        <Button Command="{Binding GoToGenre}" Content="Go To Genre" />
         <TextBlock FontSize="36" Text="List Books" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,20"/>
         <ListView Margin="10" Name="lvUsers" ItemsSource="{Binding Books}">
                     <ListView.View>

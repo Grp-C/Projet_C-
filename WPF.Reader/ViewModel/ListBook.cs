@@ -13,12 +13,15 @@ namespace WPF.Reader.ViewModel
 
         public ICommand ItemSelectedCommand { get; set; }
 
+        public ICommand GoToGenre { get; set; }
+
         // n'oublier pas faire de faire le binding dans ListBook.xaml !!!!
         public ObservableCollection<Book> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
 
         public ListBook()
         {
             ItemSelectedCommand = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<DetailsBook>(book); });
+            GoToGenre = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<ListGenre>(); });
         }
     }
 }
