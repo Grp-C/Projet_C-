@@ -12,8 +12,20 @@
       Title="ListBooks">
    
     <StackPanel>
-    
-       
+        <Grid Height="423" Width="784">
+            <ListBox Height="100" ItemsSource="{Binding Books}">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <TextBlock Text="{Binding Name}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+        </Grid>
+        
+
+
         <!-- 
             A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
             La propriété ItemsSource doit pointé vers la propiété Books de votre dataContext actuelle 
