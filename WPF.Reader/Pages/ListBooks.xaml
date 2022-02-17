@@ -10,11 +10,14 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="ListBooks">
-   
-    
 
-         
-            <ListView Margin="10" Name="lvUsers" ItemsSource="{Binding Books}">
+
+
+
+
+    <StackPanel Orientation="Vertical">
+        <TextBlock FontSize="36" Text="List Books" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,20"/>
+        <ListView Margin="10" Name="lvUsers" ItemsSource="{Binding Books}">
                     <ListView.View>
                         
                         <GridView>
@@ -24,7 +27,7 @@
                                 <GridViewColumn.CellTemplate>
                                     <DataTemplate>
                                         <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
-                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10">
+                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Detail" Margin="10">
                                         </Button>
                                      </DataTemplate>
                                 </GridViewColumn.CellTemplate>
@@ -32,11 +35,12 @@
                          </GridView>
                     </ListView.View>
              </ListView>
-          
-  
+    </StackPanel>
 
 
-        <!-- 
+
+
+    <!-- 
             A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
             La propriété ItemsSource doit pointé vers la propiété Books de votre dataContext actuelle 
             Utilisé ListBox.ItemTemplate pour définir comment sont affiché vos items
