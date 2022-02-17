@@ -5,36 +5,109 @@
     ViewData["Title"] = "Details";
 }
 
+<style>
+    *{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+    body{
+    font-family: Helvetica;
+    -webkit-font-smoothing: antialiased;
+}
+    h1{
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    padding: 30px 0;
+    background-color:#2d3436;
+    }
+
+    .rows{display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    }
+   .cards {
+     display: flex;
+     flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  .card {
+   flex: 0 1 100%;
+    box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
+  } 
+  .card img {
+    height:90%;
+    max-width: 100%;
+    background-color: #4FC3A1;
+  }
+  .card a {
+    padding: 12px 20px 20px;
+    color:#324960;
+    text-align:center;
+  }
+  .text  {
+    border: 0;
+    padding:15px;
+    
+    }
+
+    .green  {
+    color: #ffffff;
+    background: #4FC3A1;
+}
+
+
+    .blue {
+        color: #ffffff;
+        background: #324960;
+    }
+    .gray{
+        background: #f8f8f8;
+    }
+
+    </style>
+
+<div class="cards">
+    <div class="card">
+
 <h1>Details</h1>
     <hr />
-<div class="Read">
-   <dl class="row"> 
 
-<dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.Name)
-</dt>
-<dd class="col-sm-10">
-    @Html.DisplayFor(model => model.Name)
-</dd>
 
-<dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.Author)
-</dt>
-<dd class="col-sm-10">
-    @Html.DisplayFor(model => model.Author)
-</dd>
 
-<dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.Price)
-</dt>
-<dd class="col-sm-10">
-    @Html.DisplayFor(model => model.Price)
-</dd>
+   <dl class="rows"> 
 
-<dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Genres)
-        </dt>
+    <dt class="col-sm-2 text green">
+        @Html.DisplayNameFor(model => model.Name)
+    </dt>
         <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+    <dt class="col-sm-2 text blue ">
+        @Html.DisplayNameFor(model => model.Author)
+    </dt>
+        <dd class="col-sm-10 gray">
+            @Html.DisplayFor(model => model.Author)
+        </dd>
+
+    <dt class="col-sm-2 text green">
+        @Html.DisplayNameFor(model => model.Price)
+    </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    <dt class="col-sm-2 text blue ">
+            @Html.DisplayNameFor(model => model.Genres)
+    </dt>
+        <dd class="col-sm-10 gray">
             
                 @foreach (var Genre in Model.AllGenres)
                 {
@@ -45,14 +118,13 @@
         </dd>
 
 
-<dt class="col-sm-2">
-    @Html.DisplayNameFor(model => model.Content)
-</dt>
-<dd class="col-sm-10">
-    @Html.DisplayFor(model => model.Content)
-
-
-
-</dl>
+    <dt class="col-sm-2 text green">
+        @Html.DisplayNameFor(model => model.Content)
+    </dt>
+       <dd class="col-sm-10">
+         @Html.DisplayFor(model => model.Content)
+  
+        </dl>
+    </div>
 
 </div>

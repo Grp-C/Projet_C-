@@ -46,7 +46,7 @@
 }
 
 .ic1 {
-  margin-top: 32px;
+  margin-top: 62px;
   
 }
 
@@ -64,8 +64,9 @@
   font-size: 18px;
   height: 100%;
   outline: 0;
-  padding: 4px 20px 0;
+  padding: 4px 20px 20px;
   width: 100%;
+
 }
 
 .cut {
@@ -141,6 +142,7 @@
 }
 input, textarea, select {
     flex-basis:85%;
+
 }
 label {
     flex-basis:10%;
@@ -151,13 +153,15 @@ label {
     <div class="input-container ic1">
         <label asp-for="Name" style="color:white"></label>
         <input asp-for="Name" id="firstname" class="input" type="text"/>
+         @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
     </div>
     <div class="input-container ic1">
         <label asp-for="Picture" style="color:white"></label>
         <input asp-for="Picture" id="firstname" class="input" type="text"/>
+        @Html.ValidationMessageFor(model => model.Picture, "", new { @class = "text-danger" })
         
     </div>
-     <button class="submit" type="submit" value="Add" style="width: 100%; margin-top: 50px" >Add</button>
+     <button class="submit" type="submit" value="Add" style="width: 100%; margin-top: 70px" >Add</button>
 </form>
 
 
