@@ -26,7 +26,7 @@ namespace WPF.Reader.Service
         public async void getBooks()
         {
             var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
-            var books = await client.ApiBookGetBooksAsync(null, null, null);
+            var books = await client.ApiBookGetBooksAsync(null, 5, null);
             Books.Clear();
             foreach (BookWrapper book in books)
             {

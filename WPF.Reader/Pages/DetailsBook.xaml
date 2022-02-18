@@ -7,7 +7,7 @@
       xmlns:vm="clr-namespace:WPF.Reader.ViewModel"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      d:DataContext="{d:DesignInstance Type=vm:InDesignDetailsBook, d:IsDesignTimeCreatable=True}"
+      d:DataContext="{d:DesignInstance Type=vm:DetailsBook, d:IsDesignTimeCreatable=True}"
       Title="DetailsBook">
     
     <Grid Margin="10">
@@ -30,11 +30,23 @@
                 <TextBlock FontSize="16" Text="Price: " VerticalAlignment="Center" FontWeight="Bold" />
                 <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding CurrentBook.Price}" VerticalAlignment="Center" />
                     </StackPanel>
+            
+            
             <StackPanel Orientation="Horizontal">
-                <TextBlock FontSize="16" Text="Price: " VerticalAlignment="Center" FontWeight="Bold" />
-                <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding CurrentBook.Genre}" VerticalAlignment="Center" />
+                <TextBlock FontSize="16" Text="Genres: " VerticalAlignment="Center" FontWeight="Bold" />
+                <ListBox  FontSize="16" Foreground="MidnightBlue" ItemsSource="{Binding CurrentBook.Genres}" VerticalAlignment="Center">
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        
+                            <TextBlock  Width="500" Text="{Binding Name}" />
+                        
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
             </StackPanel>
         </StackPanel>
+      
+        
 
         <Button Command="{Binding DataContext.ReadCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
                                                     CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10">
