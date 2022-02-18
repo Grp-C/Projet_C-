@@ -16,7 +16,7 @@ namespace WPF.Reader.Service
         void Navigate<T>(params object[] args);
         public Frame Frame { get; }
     }
-    /// <summary>
+    /// <summary>²
     /// Aucune raison de toucher a autre chose que <see cref="viewMapping"/> dans cette classe, elle permet de gérer la navigation
     /// </summary>
     public class NavigationService : INavigationService
@@ -30,6 +30,7 @@ namespace WPF.Reader.Service
             [typeof(ViewModel.ReadBook)] = typeof(Pages.ReadBook),
             [typeof(ViewModel.DetailsBook)] = typeof(Pages.DetailsBook),
             [typeof(ViewModel.ListGenre)] = typeof(Pages.ListGenres),
+            [typeof(ViewModel.ListBookGenre)] = typeof(Pages.ListBookGenre),
 
         };
 

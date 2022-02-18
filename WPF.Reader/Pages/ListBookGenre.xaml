@@ -1,0 +1,58 @@
+﻿<Page x:Class="WPF.Reader.Pages.ListBookGenre"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:WPF.Reader.Pages"
+      xmlns:vm="clr-namespace:WPF.Reader.ViewModel"
+      xmlns:model="clr-namespace:WPF.Reader.Model"
+      d:DataContext="{d:DesignInstance Type=vm:ListBookGenre, d:IsDesignTimeCreatable=True}"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="ListBookGenre">
+
+
+
+
+
+    <StackPanel Orientation="Vertical">
+        <TextBlock FontSize="36" Text="List Books" VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,20"/>
+        <ListView Margin="10" Name="lvUsers" ItemsSource="{Binding Books}">
+                    <ListView.View>
+                        
+                        <GridView>
+                            <GridViewColumn Header="Title" Width="500" DisplayMemberBinding="{Binding Name}" />
+               
+                            <GridViewColumn Header="Action" Width="200">
+                                <GridViewColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
+                                                    CommandParameter="{Binding .}" Foreground="Blue" MinWidth="100" Height="30" Content="Detail" Margin="10">
+                                        </Button>
+                                     </DataTemplate>
+                                </GridViewColumn.CellTemplate>
+                             </GridViewColumn>
+                         </GridView>
+                    </ListView.View>
+             </ListView>
+    </StackPanel>
+
+
+
+
+    <!-- 
+            A vous de créer la liste avec le bon binding. Une <ListBox> fera l'affaire 
+            La propriété ItemsSource doit pointé vers la propiété Books de votre dataContext actuelle 
+            Utilisé ListBox.ItemTemplate pour définir comment sont affiché vos items
+            <ListBox.ItemTemplate>
+        
+            A vous de faire afficher les champs que vous voulez afficher pour savoir quel sont les livre disponible
+            <TextBlock Text="{Binding MyPropertyOnMyObjectBook}"/>
+            N'oublier pas non plus de rajouter un boutton quelque part pour allez voir les détails de votre livre
+            Les propriété Command et CommandParameter pourrons vous aider ! 
+            Command="{Binding DataContext.ItemSelectedCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
+            CommandParameter="{Binding .}"
+        -->
+   
+</Page>
+

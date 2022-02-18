@@ -52,6 +52,13 @@ namespace WPF.Reader.Service
             }
         }
 
+        public System.Collections.Generic.ICollection<BookWrapper> getBooksbygenres(int? id=0)
+        {
+            var client = new API.Client(new System.Net.Http.HttpClient() { BaseAddress = new Uri(URL) });
+            var books =  client.ApiBookGetBooksAsync(id, 5, null);
+            return books.Result;
+        }
+
         // C'est aussi ici que vous ajouterez les requète réseau pour récupérer les livres depuis le web service que vous avez fait
         // Vous pourrez alors ajouter les livres obtenu a la variable Books !
         // A remplacer avec vos propre données !!!!!!!!!!!!!!

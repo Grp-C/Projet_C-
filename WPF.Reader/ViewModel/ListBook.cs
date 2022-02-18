@@ -1,4 +1,5 @@
 ﻿using Microsoft.Toolkit.Mvvm.DependencyInjection;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
@@ -17,12 +18,17 @@ namespace WPF.Reader.ViewModel
         public ICommand GoToGenre { get; set; }
 
         // n'oublier pas faire de faire le binding dans ListBook.xaml !!!!
+        public ICollection<BookWrapper> Items;
         public ObservableCollection<BookWrapper> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
-
         public ListBook()
-        {
+                    {
             ItemSelectedCommand = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<DetailsBook>(book); });
-             //Navigate to List Genre
+            
+            Items = Ioc.Default.GetRequiredService<LibraryService>().getBooksbygenres(null);
+            Books.Clear();
+            foreach (var item in Items) {
+               
+                Books.Add(item); } 
             GoToGenre = new RelayCommand(book => { Ioc.Default.GetRequiredService<INavigationService>().Navigate<ListGenre>(); });
         }
     }
