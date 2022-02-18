@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
+using WPF.Reader.API;
 using WPF.Reader.Model;
 using WPF.Reader.Service;
 
@@ -16,7 +17,7 @@ namespace WPF.Reader.ViewModel
         public ICommand GoToGenre { get; set; }
 
         // n'oublier pas faire de faire le binding dans ListBook.xaml !!!!
-        public ObservableCollection<Book> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
+        public ObservableCollection<BookWrapper> Books => Ioc.Default.GetRequiredService<LibraryService>().Books;
 
         public ListBook()
         {

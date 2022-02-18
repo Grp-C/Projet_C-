@@ -2,7 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Windows.Input;
-using WPF.Reader.Model;
+using WPF.Reader.API;
 using WPF.Reader.Service;
 
 namespace WPF.Reader.ViewModel

@@ -30,7 +30,11 @@
                 <TextBlock FontSize="16" Text="Price: " VerticalAlignment="Center" FontWeight="Bold" />
                 <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding CurrentBook.Price}" VerticalAlignment="Center" />
                     </StackPanel>
-                </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text="Price: " VerticalAlignment="Center" FontWeight="Bold" />
+                <TextBlock FontSize="16" Foreground="MidnightBlue" Text="{Binding CurrentBook.Genre}" VerticalAlignment="Center" />
+            </StackPanel>
+        </StackPanel>
 
         <Button Command="{Binding DataContext.ReadCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
                                                     CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10">

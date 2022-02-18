@@ -56,7 +56,7 @@ namespace ASP.Server.Api
 
 
         // Get all books by genreId (optionnel) and limit and offset  and return BookWrapper( id , Name , Price , Author)
-        public ActionResult<List<BookWrapper>> GetBooks( int genreId, int limit, int offset )
+        public ActionResult<List<BookWrapper>> GetBooks( int genreId, int limit=10, int offset=0 )
         {
             return genreId!=0 ? libraryDbContext.Books.Include(book => book.Genres).Select(book => new BookWrapper() { Id = book.Id,Name = book.Name,Author = book.Author, Price = book.Price , Genres = book.Genres}).Where(book => book.Genres.Contains(new Genre { Id = genreId })).OrderBy(q => q.Id).Skip(offset - 1).Take(limit).ToList()
             : libraryDbContext.Books.Include(book => book.Genres).Select(book => new BookWrapper() { Id = book.Id, Name = book.Name, Author = book.Author, Price = book.Price, Genres = book.Genres }).OrderBy(q => q.Id).Skip(offset-1).Take(limit).ToList();
