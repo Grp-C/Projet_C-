@@ -15,17 +15,16 @@
     
         <!-- On aimerais bien avoir le tire du livre en entête -->
        
-            <StackPanel >
-        <StackPanel Orientation="Horizontal">
-            <TextBlock FontSize="36" Text="Detail book " VerticalAlignment="Center" FontWeight="Bold" />
-            <TextBlock FontSize="36" Text="{Binding CurrentBook.Name}" VerticalAlignment="Center"  />
+    <StackPanel >
+        <StackPanel Orientation="Vertical">
+            <TextBlock FontSize="36" Text="Detail book " VerticalAlignment="Center" FontWeight="Bold" Margin="10,0,0,20"/>
+            <TextBlock FontSize="28" Text="{Binding CurrentBook.Name}" VerticalAlignment="Center" Margin="10,0,0,20" />
         </StackPanel>
+                
         <TextBlock Margin="10" TextAlignment="Justify" TextWrapping="WrapWithOverflow"  Text="{Binding CurrentBook.Content}" />
-            
+           
         
-        <!-- Ainsi que le contenu du livre ! -->
-        
-        <Button Grid.Row="2" Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Bottom" HorizontalAlignment="Center" Width="200" Content="Retourner au details" Margin="0,0,0,27"/>
+        <Button  Command="{Binding Path=GoBack, Source={StaticResource ResourceKey=navigator}}" CommandParameter="LIST" Height="30" VerticalAlignment="Bottom"  Width="200" Content="Back to details" />
     </StackPanel>
 </Page>
 

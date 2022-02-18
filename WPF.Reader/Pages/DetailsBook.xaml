@@ -49,7 +49,7 @@
         
 
         <Button Command="{Binding DataContext.ReadCommand, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Page}}}" 
-                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="50" Height="30" Content="Read" Margin="10">
+                                                    CommandParameter="{Binding .}" Foreground="Blue" Width="200" Height="30" Content="Read Book" Margin="10">
         </Button>
 
 
