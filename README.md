@@ -1,10 +1,9 @@
 # Projet .Net Pour la gestion et consultation d'une bibliotheque de Livres
-# Contrainte
-Langages autorisés : C#, HTML, Javascript
+- Langages  : C#, HTML, Javascript
 
-Serveur web : ASP.Net Core
+- Serveur web : ASP.Net Core
 
-Logiciel Windows : WPF
+- Logiciel Windows : WPF
 
 # MEMBRES
 - NOUHAILA AANAYA
